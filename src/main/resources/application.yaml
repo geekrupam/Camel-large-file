@@ -1,0 +1,33 @@
+camel:
+  springboot:
+    name: camel-file-integration-sample
+
+logging:
+  level:
+    org:
+      apache:
+        camel: DEBUG
+
+spring:
+  datasource:
+    password: password
+    url: jdbc:oracle:thin:@localhost:1521:ORCL
+    username: sys as sysdba
+  activemq:
+    broker-url: "tcp://XXXXXXXX:61616"
+    user: XXXXXX
+    password: XXXXXX
+
+file-to-topic:
+  routeId: "file-to-topic-route"
+  trackFile: "src/main/resources/track.txt"
+  file:
+    uri: "file:src/main/resources?noop=true&delay=20000&antInclude=file_*.csv"
+    token: "\n"
+    noOfLinesToSkip: 1
+    noOfLinesToReadAtOnce: 1000
+    skipFirstLine: true
+    streaming: true
+  mapperClass: "com.integration.camel.sample.mapper.InputCsvMapper"
+  processorClass: "com.integration.camel.sample.process.InputCsvProcessor"
+  persistClass: "com.integration.camel.sample.process.PersistProcessor"
