@@ -22,7 +22,7 @@ file-to-topic:
   routeId: "file-to-topic-route"
   trackFile: "src/main/resources/track.txt"
   file:
-    uri: "file:src/main/resources?noop=true&delay=20000&antInclude=file_*.csv"
+    uri: "file:C:/Users/geekr/OneDrive/Desktop?noop=true&delay=20000&antInclude=file_Data_2024_4_621_0.csv"
     token: "\n"
     noOfLinesToSkip: 1
     noOfLinesToReadAtOnce: 1000
